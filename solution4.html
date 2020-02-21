@@ -6,16 +6,15 @@
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script>
       AFRAME.registerComponent('school-playground', {
-        /**
-         * Code within this function will be called when everything in <a-scene> is ready and loaded.
-         */
         init: function () {
-          var sceneEl = document.querySelector('a-scene');
-          sceneEl.querySelector('a-box').setAttribute('rotation', {x: 7, y: 0, z: 7});
-          sceneEl.querySelector('a-cylinder').setAttribute('geometry', 'height', 5);
-          sceneEl.querySelector('a-sphere').setAttribute('material', {metalness: 1});
-          console.log('Welcome, class!');
+          // Solution for Handling Events.
+          var sceneEl = document.querySelector('a-scene'); 
+          var boxEl = sceneEl.querySelector('a-box')
           
+          boxEl.addEventListener('foo', function () {
+            boxEl.setAttribute('color', 'blue');  
+          });
+          boxEl.emit('foo');
         }
       });
     </script>
